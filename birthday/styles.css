@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background:linear-gradient(45deg,	#aab11f,#0e1002,rgb(220, 13, 13));
+    background-size: 300% 300%;
+    text-align: center;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: color 5s ease-in-out infinite;
+}
+
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+}
+
+.start-button {
+    background:linear-gradient(45deg,	#aab11f,#0e1002,rgb(220, 13, 13));
+    color: white;
+    font-size: 1.5rem;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-bottom: 50px;
+    background-size: 300% 300%;
+    animation: color 5s ease-in-out infinite;
+}
+
+.start-button:hover {
+    background: linear-gradient(45deg,	#aab11f,#0e1002,rgb(220, 13, 13));
+    box-shadow: 0px 0px 15px 5px rgba(250, 249, 248, 0.6);
+    background-size: 300% 300%;
+    animation: color 5s ease-in-out infinite;
+}
+
+.start-button:active {
+    box-shadow: 0px 0px 30px 10px rgba(255, 140, 0, 0.8);
+}
+
+.balloon-container {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    top: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    pointer-events: none;
+}
+@keyframes color{
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}
+.balloon {
+    width: 50px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ff69b4;
+    position: absolute;
+    bottom: 0;
+    animation: floatUp 10s ease-in-out infinite;
+    transform-origin: bottom;
+    border: 10px none;
+}
+
+.balloon:after {
+    content: "";
+    width: 5px;
+    height: 100px;
+    background-color: #f9f3ef;
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-300px);
+        opacity: 0;
+    }
+}
+
+.birthday-message {
+    position: center;
+    top: 150px;
+    left: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #010001;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(210, 91, 91, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 20px;
+    transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+    width: 90%;
+}
+
+.birthday-message h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.birthday-message .birthday-paragraph {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #ccadad;
+}
+
+.birthday-message.show {
+    opacity: 1;
+    transform: translateY(-20px);
+}
+
+@media (max-width: 600px) {
+    .birthday-message {
+        font-size: 1.5rem;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .birthday-message h1 {
+        font-size: 2.5rem;
+    }
+
+    .birthday-message .birthday-paragraph {
+        font-size: 1rem;
+    }
+}
